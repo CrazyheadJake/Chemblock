@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "title": "Chemblock",
   "author": "CrazyheadJake",
-  "factorio_version": "2.0",
-  "dependencies": ["base >= 2.0", "space-age >= 2.0"],
+  "factorio_version": "2.1",
+  "dependencies": ["base >= 2.1", "space-age >= 2.1"],
   "description": "This mod starts you on a space platform and forces you to use a bunch of elements to progress!"
 }
