@@ -6,10 +6,10 @@ local starting_planet = "nauvis"
 local function starting_items()
   return
   {
-    ["iron-plate"] = 8,
-    ["wood"] = 1,
-    ["pistol"] = 1,
-    ["firearm-magazine"] = 10,
+    ["crusher"] = 4,
+    ["asteroid-collector"] = 4,
+    ["solar-panel"] = 4,
+    ["small-electric-pole"] = 10
   }
 end
 
@@ -36,7 +36,7 @@ script.on_event(defines.events.on_player_created, function(event)
   player.set_controller({type = defines.controllers.character, character = player.character})
   local exit_position = platform.surface.find_non_colliding_position("character", {0, 0}, 0, 0.25)
   player.teleport(exit_position, platform.surface)
-
+  
   util.insert_safe(player, starting_items())
 end)
 
@@ -56,4 +56,6 @@ script.on_init(function()
 
   remote.call("freeplay", "set_disable_crashsite", true)
   remote.call("freeplay", "set_skip_intro", true)
+  remote.call("freeplay", "set_created_items", {})
+  remote.call("freeplay", "set_respawn_items", {})
 end)

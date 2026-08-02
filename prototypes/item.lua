@@ -10,21 +10,34 @@ local function make_tile_area(area, name)
   return result
 end
 
-local spaceStationStartPack = table.deepcopy(data.raw["space-platform-starter-pack"]["space-platform-starter-pack"]) --[[@as SpacePlatformStarterPackPrototype]]
-spaceStationStartPack.name = "space-station-starter-pack"
-spaceStationStartPack.icons = {
+-- Space station starter pack
+local space_station_starter_pack = table.deepcopy(data.raw["space-platform-starter-pack"]["space-platform-starter-pack"]) --[[@as SpacePlatformStarterPackPrototype]]
+space_station_starter_pack.name = "space-station-starter-pack"
+space_station_starter_pack.icons = {
     {
-    icon = spaceStationStartPack.icon,
-    icon_size = spaceStationStartPack.icon_size,
-    tint = {r=1,g=0,b=1,a=0.3}
+    icon = space_station_starter_pack.icon,
+    icon_size = space_station_starter_pack.icon_size,
+    tint = {r=1,g=0,b=0.8}
   },
 }
-spaceStationStartPack.tiles = make_tile_area({{-20, -20}, {19, 19}}, "space-platform-foundation")
-spaceStationStartPack.initial_items = nil
-spaceStationStartPack.create_electric_network = false
+space_station_starter_pack.tiles = make_tile_area({{-20, -20}, {19, 19}}, "space-platform-foundation")
+space_station_starter_pack.initial_items = nil
+space_station_starter_pack.create_electric_network = false
+
+-- Cupric asteroid chunk
+local cupric_asteroid_chunk = table.deepcopy(data.raw.item["metallic-asteroid-chunk"])
+cupric_asteroid_chunk.name = "cupric-asteroid-chunk"
+cupric_asteroid_chunk.icons = {
+    {
+    icon = cupric_asteroid_chunk.icon,
+    icon_size = cupric_asteroid_chunk.icon_size,
+    tint = {r=1,g=0.6,b=0}
+  },
+}
 
 data:extend(
     {
-        spaceStationStartPack
+        space_station_starter_pack,
+        cupric_asteroid_chunk,
     }
 )
