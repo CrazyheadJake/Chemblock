@@ -1,3 +1,10 @@
+data:extend({
+    {
+        type = "recipe-category",
+        name = "sublimating"
+    }
+})
+
 -- Space station starter pack recipe
 local space_station_recipe = table.deepcopy(data.raw.recipe["space-platform-starter-pack"]) --[[@as RecipePrototype]]
 space_station_recipe.name = "space-station-starter-pack"
@@ -49,7 +56,7 @@ local simple_heat_exchanger_recipe = {
     icons = data.raw.item["simple-heat-exchanger"].icons,
     ingredients = {
         {type = "item", name = "copper-plate", amount = 20},
-        {type = "item", name = "gear", amount = 10},
+        {type = "item", name = "iron-gear-wheel", amount = 10},
         {type = "item", name = "pipe", amount = 8}
     },
     results = {
@@ -73,6 +80,43 @@ local stone_crushing_recipe = {
     enabled = true,
 }
 
+-- Sublimator recipe
+local sublimator_recipe = {
+    type = "recipe",
+    name = "sublimator",
+    categories = {"crafting"},
+    icons = data.raw.item["sublimator"].icons,
+    ingredients = {
+        {type = "item", name = "stone", amount = 20},
+        {type = "item", name = "sand", amount = 12},
+        {type = "item", name = "iron-ore", amount = 8}
+    },
+    results = {
+        {type = "item", name = "sublimator", amount = 1}
+    },
+    enabled = true
+}
+
+-- Ice sublimation recipe
+local ice_sublimation_recipe = {
+    type = "recipe",
+    name = "ice-sublimation",
+    categories = {"sublimating"},
+    icons = {
+        {
+            icon = data.raw.fluid["steam"].icon,
+            icon_size = data.raw.fluid["steam"].icon_size,
+        }
+    },
+    ingredients = {
+        {type = "item", name = "ice", amount = 1}
+    },
+    results = {
+        {type = "fluid", name = "steam", amount = 100}
+    },
+    enabled = true,
+    energy_required = 5,
+}
 
 data:extend(
     {
@@ -81,5 +125,7 @@ data:extend(
         steam_furnace_recipe,
         stone_crushing_recipe,
         simple_heat_exchanger_recipe,
+        ice_sublimation_recipe,
+        sublimator_recipe,
     }
 )

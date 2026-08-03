@@ -73,6 +73,18 @@ sand.icons = {
   },
 }
 
+-- Sublimator
+local sublimator_item = table.deepcopy(data.raw.item["assembling-machine-2"])
+sublimator_item.name = "sublimator"
+sublimator_item.icons = {
+    {
+    icon = sublimator_item.icon,
+    icon_size = sublimator_item.icon_size,
+    tint = {r=0.5,g=0.5,b=1}
+  },
+}
+sublimator_item.place_result = "sublimator"
+
 
 data:extend(
     {
@@ -81,5 +93,6 @@ data:extend(
         steam_furnace_item,
         simple_heat_exchanger,
         sand,
+        sublimator_item,
     }
 )
