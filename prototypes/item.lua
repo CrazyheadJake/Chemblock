@@ -35,9 +35,38 @@ cupric_asteroid_chunk.icons = {
   },
 }
 
+-- Steam furnace
+local steam_furnace_item = table.deepcopy(data.raw.item["stone-furnace"])
+steam_furnace_item.name = "steam-furnace"
+steam_furnace_item.place_result = "steam-furnace"
+steam_furnace_item.icons = {
+    {
+    icon = steam_furnace_item.icon,
+    icon_size = steam_furnace_item.icon_size,
+    tint = {r=0.8,g=0.8,b=1}
+  },
+}
+
+-- Sand
+local sand = {
+  ["stack_size"] = 100,
+  ["name"] = "sand",
+  ["type"] = "item",
+}
+sand.icons = {
+    {
+    icon = data.raw.item["lithium"].icon,
+    icon_size = data.raw.item["lithium"].icon_size,
+    tint = {r=1,g=0.9,b=0.6}
+  },
+}
+
+
 data:extend(
     {
         space_station_starter_pack,
         cupric_asteroid_chunk,
+        steam_furnace_item,
+        sand,
     }
 )

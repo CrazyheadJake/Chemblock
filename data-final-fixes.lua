@@ -10,6 +10,12 @@ table.insert(data.raw.planet.nauvis.asteroid_spawn_definitions,
   }
 )
 
+
+
 data.raw.recipe["metallic-asteroid-crushing"].enabled = true
 data.raw.recipe["oxide-asteroid-crushing"].enabled = true
 data.raw.recipe["carbonic-asteroid-crushing"].enabled = true
+data.raw.recipe["carbonic-asteroid-crushing"].results = {
+    {type = "item", name = "stone", amount = 10},
+    {type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability = 0.3}
+}
