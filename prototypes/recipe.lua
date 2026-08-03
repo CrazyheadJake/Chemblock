@@ -41,6 +41,23 @@ steam_furnace_recipe.ingredients =
 steam_furnace_recipe.results = {{type = "item", name = "steam-furnace", amount = 1}}
 steam_furnace_recipe.enabled = true
 
+-- Simple heat exchanger recipe
+local simple_heat_exchanger_recipe = {
+    type = "recipe",
+    name = "simple-heat-exchanger",
+    categories = {"crafting"},
+    icons = data.raw.item["simple-heat-exchanger"].icons,
+    ingredients = {
+        {type = "item", name = "copper-plate", amount = 20},
+        {type = "item", name = "gear", amount = 10},
+        {type = "item", name = "pipe", amount = 8}
+    },
+    results = {
+        {type = "item", name = "simple-heat-exchanger", amount = 1}
+    },
+    enabled = true
+}
+
 -- Stone crushing recipe
 local stone_crushing_recipe = {
     type = "recipe",
@@ -62,6 +79,7 @@ data:extend(
         space_station_recipe,
         cupric_crushing_recipe,
         steam_furnace_recipe,
-        stone_crushing_recipe
+        stone_crushing_recipe,
+        simple_heat_exchanger_recipe,
     }
 )

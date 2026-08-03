@@ -38,7 +38,6 @@ cupric_asteroid_chunk.icons = {
 -- Steam furnace
 local steam_furnace_item = table.deepcopy(data.raw.item["stone-furnace"])
 steam_furnace_item.name = "steam-furnace"
-steam_furnace_item.place_result = "steam-furnace"
 steam_furnace_item.icons = {
     {
     icon = steam_furnace_item.icon,
@@ -46,6 +45,19 @@ steam_furnace_item.icons = {
     tint = {r=0.8,g=0.8,b=1}
   },
 }
+steam_furnace_item.place_result = "steam-furnace"
+
+-- Simple heat exchanger
+local simple_heat_exchanger = table.deepcopy(data.raw.item["heat-exchanger"])
+simple_heat_exchanger.name = "simple-heat-exchanger"
+simple_heat_exchanger.icons = {
+    {
+    icon = simple_heat_exchanger.icon,
+    icon_size = simple_heat_exchanger.icon_size,
+    tint = {r=0.8,g=0.8,b=1}
+  },
+}
+simple_heat_exchanger.place_result = "simple-heat-exchanger"
 
 -- Sand
 local sand = {
@@ -67,6 +79,7 @@ data:extend(
         space_station_starter_pack,
         cupric_asteroid_chunk,
         steam_furnace_item,
+        simple_heat_exchanger,
         sand,
     }
 )
