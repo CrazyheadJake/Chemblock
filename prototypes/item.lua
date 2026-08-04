@@ -61,9 +61,9 @@ simple_heat_exchanger.place_result = "simple-heat-exchanger"
 
 -- Sand
 local sand = {
-  ["stack_size"] = 100,
-  ["name"] = "sand",
-  ["type"] = "item",
+  stack_size = 100,
+  name = "sand",
+  type = "item",
 }
 sand.icons = {
     {
@@ -85,6 +85,17 @@ sublimator_item.icons = {
 }
 sublimator_item.place_result = "sublimator"
 
+-- Solar heater
+local solar_heater_item = table.deepcopy(data.raw.item["solar-panel"])
+solar_heater_item.name = "solar-heater"
+solar_heater_item.icons = {
+    {
+    icon = solar_heater_item.icon,
+    icon_size = solar_heater_item.icon_size,
+    tint = {r=1,g=0.4,b=0}
+  }
+}
+solar_heater_item.place_result = "solar-heater"
 
 data:extend(
     {
@@ -94,5 +105,6 @@ data:extend(
         simple_heat_exchanger,
         sand,
         sublimator_item,
+        solar_heater_item,
     }
 )

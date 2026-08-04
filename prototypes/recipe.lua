@@ -118,6 +118,23 @@ local ice_sublimation_recipe = {
     energy_required = 5,
 }
 
+-- Solar heater
+local solar_heater_recipe = {
+    type = "recipe",
+    name = "solar-heater",
+    categories = {"crafting"},
+    icons = data.raw.item["solar-heater"].icons,
+    ingredients = {
+        {type = "item", name = "copper-plate", amount = 20},
+        {type = "item", name = "iron-plate", amount = 20},
+        {type = "item", name = "pipe", amount = 10}
+    },
+    results = {
+        {type = "item", name = "solar-heater", amount = 1}
+    },
+    enabled = true
+}
+
 data:extend(
     {
         space_station_recipe,
