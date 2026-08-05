@@ -60,11 +60,9 @@ simple_heat_exchanger.icons = {
 simple_heat_exchanger.place_result = "simple-heat-exchanger"
 
 -- Sand
-local sand = {
-  stack_size = 100,
-  name = "sand",
-  type = "item",
-}
+local sand = table.deepcopy(data.raw.item["stone"])
+sand.name = "sand"
+sand.stack_size = 100
 sand.icons = {
     {
     icon = data.raw.item["lithium"].icon,

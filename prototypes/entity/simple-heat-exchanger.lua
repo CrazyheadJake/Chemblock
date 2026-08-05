@@ -9,9 +9,11 @@ simple_heat_exchanger.icons = {
 }
 simple_heat_exchanger.minable.result = "simple-heat-exchanger"
 simple_heat_exchanger.target_temperature = 165
-simple_heat_exchanger.energy_consumption = "1.8MW"
+simple_heat_exchanger.energy_consumption = "360kW"
 simple_heat_exchanger.energy_source.min_working_temperature = 165
 simple_heat_exchanger.energy_source.minimum_glow_temperature = 100
+simple_heat_exchanger.energy_source.specific_heat = "10kJ"
+simple_heat_exchanger.energy_source.max_temperature = 300
 
 
 data:extend(

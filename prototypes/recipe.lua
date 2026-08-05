@@ -144,5 +144,6 @@ data:extend(
         simple_heat_exchanger_recipe,
         ice_sublimation_recipe,
         sublimator_recipe,
+        solar_heater_recipe,
     }
 )

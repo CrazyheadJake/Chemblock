@@ -7,7 +7,7 @@ steam_furnace.icons = {
     tint = {r=0.8,g=0.8,b=1}
   },
 }
-data.raw.fluid["steam"].fuel_value = "10kJ"
+data.raw.fluid["steam"].fuel_value = "20kJ"
 steam_furnace.energy_source = {
   type = "fluid",
   fluid_box = {
