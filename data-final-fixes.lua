@@ -10,6 +10,15 @@ table.insert(data.raw.planet.nauvis.asteroid_spawn_definitions,
   }
 )
 
+table.insert(data.raw.planet.nauvis.asteroid_spawn_definitions,
+  {
+    type = "entity",
+    asteroid = "resource-asteroid",
+    probability = 0.006125,
+    speed = asteroid_util.standard_speed,
+    angle_when_stopped = asteroid_util.chunk_angle,
+  }
+)
 
 
 data.raw.recipe["metallic-asteroid-crushing"].enabled = true
