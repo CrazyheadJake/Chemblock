@@ -13,6 +13,23 @@ local function starting_items()
   }
 end
 
+-- Scatter space rocks across a platform's floor.
+local SPACE_ROCK = "big-space-rock"
+local SPACE_ROCK_COUNT = 10
+
+local function seed_space_rocks(surface)
+  local tiles = surface.find_tiles_filtered{name = "space-platform-foundation"}
+  if #tiles == 0 then return end
+
+  for _ = 1, SPACE_ROCK_COUNT do
+    local tile = tiles[math.random(#tiles)]
+    local position = surface.find_non_colliding_position(SPACE_ROCK, tile.position, 8, 0.5)
+    if position then
+      surface.create_entity{name = SPACE_ROCK, position = position, force = "neutral"}
+    end
+  end
+end
+
 local function get_or_create_starting_platform(force)
   if storage.platform and storage.platform.valid then
     return storage.platform
@@ -24,6 +41,7 @@ local function get_or_create_starting_platform(force)
     starter_pack = starting_pack,
   }
   storage.platform.apply_starter_pack()
+  seed_space_rocks(storage.platform.surface)
 
   return storage.platform
 end
@@ -64,6 +82,7 @@ script.on_nth_tick(30, function()
     end
   end
 end)
+
 
 script.on_init(function()
   game.forces.player.unlock_space_platforms()
