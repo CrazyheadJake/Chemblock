@@ -51,27 +51,13 @@ script.on_event(defines.events.on_player_respawned, function(event)
   player.teleport(exit_position, platform.surface)
 end)
 
--- The placeable-neutral / placeable-enemy prototype flags only choose the default
--- force for map-editor AUTO placement -- the engine's asteroid spawner always
--- creates asteroids on the enemy force, and enemy entities can't be mined.
--- Reassign ours to neutral so the player can actually pick them up. Filtering on
--- force = "enemy" means already-converted ones are skipped, so this stays cheap.
 script.on_nth_tick(30, function()
   for _, surface in pairs(game.surfaces) do
-    for _, entity in pairs(surface.find_entities_filtered{
-      name = "resource-asteroid",
-      force = "enemy",
-    }) do
-      entity.force = "neutral"
-    end
-  end
-end)
+    for _, entity in pairs(surface.find_entities_filtered{name = "resource-asteroid"}) do
+      if entity.force.name == "enemy" then
+        entity.force = "neutral"
+      end
 
-script.on_nth_tick(30, function()
-  for _, surface in pairs(game.surfaces) do
-    for _, entity in pairs(surface.find_entities_filtered{
-      name = "resource-asteroid",
-    }) do
       if entity.health == 0 then
         entity.die()
       end

@@ -71,6 +71,23 @@ local stone_crushing_recipe = {
     name = "stone-crushing",
     categories = {"crushing"},
     icons = data.raw.item["sand"].icons,
+    energy_required = 2,
+    ingredients = {
+        {type = "item", name = "stone", amount = 1}
+    },
+    results = {
+        {type = "item", name = "sand", amount = 1}
+    },
+    enabled = false
+}
+
+-- Hand-crafted stone crushing.
+local stone_crushing_by_hand_recipe = {
+    type = "recipe",
+    name = "stone-crushing-by-hand",
+    categories = {"hand-crafting"},
+    icons = data.raw.item["sand"].icons,
+    energy_required = 4,
     ingredients = {
         {type = "item", name = "stone", amount = 1}
     },
@@ -86,6 +103,7 @@ local sublimator_recipe = {
     name = "sublimator",
     categories = {"crafting"},
     icons = data.raw.item["sublimator"].icons,
+    energy_required = 2,
     ingredients = {
         {type = "item", name = "stone", amount = 20},
         {type = "item", name = "sand", amount = 12},
@@ -124,6 +142,7 @@ local solar_heater_recipe = {
     name = "solar-heater",
     categories = {"crafting"},
     icons = data.raw.item["solar-heater"].icons,
+    energy_required = 4,
     ingredients = {
         {type = "item", name = "copper-plate", amount = 20},
         {type = "item", name = "iron-plate", amount = 20},
@@ -141,6 +160,7 @@ data:extend(
         cupric_crushing_recipe,
         steam_furnace_recipe,
         stone_crushing_recipe,
+        stone_crushing_by_hand_recipe,
         simple_heat_exchanger_recipe,
         ice_sublimation_recipe,
         sublimator_recipe,
