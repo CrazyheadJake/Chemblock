@@ -25,7 +25,11 @@ data.raw.recipe["metallic-asteroid-crushing"].enabled = true
 data.raw.recipe["oxide-asteroid-crushing"].enabled = true
 data.raw.recipe["carbonic-asteroid-crushing"].enabled = true
 data.raw.recipe["carbonic-asteroid-crushing"].results = {
-    {type = "item", name = "stone", amount = 10},
-    {type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability = 0.3}
+  {type = "item", name = "stone", amount = 10},
+  {type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability = 0.3}
 }
 data.raw.fluid["steam"].fuel_value = "20kJ"
+data.raw.recipe["space-platform-foundation"].ingredients = {
+  {type = "item", name = "stone", amount = 5},
+  {type = "item", name = "iron-plate", amount = 8},
+}

@@ -5,6 +5,8 @@ data:extend({
     }
 })
 
+local recipes = {}
+
 -- Space station starter pack recipe
 local space_station_recipe = table.deepcopy(data.raw.recipe["space-platform-starter-pack"]) --[[@as RecipePrototype]]
 space_station_recipe.name = "space-station-starter-pack"
@@ -15,6 +17,7 @@ space_station_recipe.ingredients =
     }
 space_station_recipe.results = {{type="item", name="space-station-starter-pack", amount=1}}
 space_station_recipe.enabled = true
+recipes.space_station = space_station_recipe
 
 -- Cupric asteroid crushing recipe
 local cupric_crushing_recipe = table.deepcopy(data.raw.recipe["metallic-asteroid-crushing"])
@@ -35,6 +38,7 @@ cupric_crushing_recipe.results =
       {type = "item", name = "cupric-asteroid-chunk", amount = 1, independent_probability = 0.3}
     }
 cupric_crushing_recipe.enabled = true
+recipes.cupric_crushing = cupric_crushing_recipe
 
 -- Steam furnace recipe
 local steam_furnace_recipe = table.deepcopy(data.raw.recipe["stone-furnace"])
@@ -47,6 +51,7 @@ steam_furnace_recipe.ingredients =
     }
 steam_furnace_recipe.results = {{type = "item", name = "steam-furnace", amount = 1}}
 steam_furnace_recipe.enabled = true
+recipes.steam_furnace = steam_furnace_recipe
 
 -- Steam crusher recipe
 local steam_crusher_recipe = table.deepcopy(data.raw.recipe["crusher"])
@@ -60,6 +65,7 @@ steam_crusher_recipe.ingredients =
     }
 steam_crusher_recipe.results = {{type = "item", name = "steam-crusher", amount = 1}}
 steam_crusher_recipe.enabled = true
+recipes.steam_crusher = steam_crusher_recipe
 
 -- Steam asteroid collector recipe
 local steam_asteroid_collector_recipe = table.deepcopy(data.raw.recipe["asteroid-collector"])
@@ -73,9 +79,10 @@ steam_asteroid_collector_recipe.ingredients =
     }
 steam_asteroid_collector_recipe.results = {{type = "item", name = "steam-asteroid-collector", amount = 1}}
 steam_asteroid_collector_recipe.enabled = true
+recipes.steam_asteroid_collector = steam_asteroid_collector_recipe
 
 -- Steam lab recipe
-local steam_lab_recipe = {
+recipes.steam_lab = {
     type = "recipe",
     name = "steam-lab",
     categories = {"crafting"},
@@ -92,7 +99,7 @@ local steam_lab_recipe = {
     enabled = true}
 
 -- Simple heat exchanger recipe
-local simple_heat_exchanger_recipe = {
+recipes.simple_heat_exchanger = {
     type = "recipe",
     name = "simple-heat-exchanger",
     categories = {"crafting"},
@@ -109,7 +116,7 @@ local simple_heat_exchanger_recipe = {
 }
 
 -- Stone crushing recipe
-local stone_crushing_recipe = {
+recipes.stone_crushing = {
     type = "recipe",
     name = "stone-crushing",
     categories = {"crushing"},
@@ -125,7 +132,7 @@ local stone_crushing_recipe = {
 }
 
 -- Hand-crafted stone crushing.
-local stone_crushing_by_hand_recipe = {
+recipes.stone_crushing_by_hand = {
     type = "recipe",
     name = "stone-crushing-by-hand",
     categories = {"hand-crafting"},
@@ -141,16 +148,16 @@ local stone_crushing_by_hand_recipe = {
 }
 
 -- Sublimator recipe
-local sublimator_recipe = {
+recipes.sublimator = {
     type = "recipe",
     name = "sublimator",
     categories = {"crafting"},
     icons = data.raw.item["sublimator"].icons,
     energy_required = 2,
     ingredients = {
-        {type = "item", name = "stone", amount = 20},
         {type = "item", name = "sand", amount = 12},
-        {type = "item", name = "iron-ore", amount = 8}
+        {type = "item", name = "iron-plate", amount = 8},
+        {type = "item", name = "iron-gear-wheel", amount = 4},
     },
     results = {
         {type = "item", name = "sublimator", amount = 1}
@@ -159,7 +166,7 @@ local sublimator_recipe = {
 }
 
 -- Ice sublimation recipe
-local ice_sublimation_recipe = {
+recipes.ice_sublimation = {
     type = "recipe",
     name = "ice-sublimation",
     categories = {"sublimating"},
@@ -180,7 +187,7 @@ local ice_sublimation_recipe = {
 }
 
 -- Solar heater
-local solar_heater_recipe = {
+recipes.solar_heater = {
     type = "recipe",
     name = "solar-heater",
     categories = {"crafting"},
@@ -198,7 +205,7 @@ local solar_heater_recipe = {
 }
 
 -- Solar inserter
-local solar_inserter_recipe = {
+recipes.solar_inserter = {
     type = "recipe",
     name = "solar-inserter",
     categories = {"crafting"},
@@ -216,7 +223,7 @@ local solar_inserter_recipe = {
 }
 
 -- Glass
-local glass_recipe = {
+recipes.glass = {
     type = "recipe",
     name = "glass",
     categories = {"smelting"},
@@ -231,19 +238,23 @@ local glass_recipe = {
     enabled = true
 }
 
-data:extend({
-    space_station_recipe,
-    cupric_crushing_recipe,
-    steam_furnace_recipe,
-    steam_crusher_recipe,
-    steam_lab_recipe,
-    steam_asteroid_collector_recipe,
-    stone_crushing_recipe,
-    stone_crushing_by_hand_recipe,
-    simple_heat_exchanger_recipe,
-    ice_sublimation_recipe,
-    sublimator_recipe,
-    solar_heater_recipe,
-    solar_inserter_recipe,
-    glass_recipe,
-})
+-- Simple heat pipe
+recipes.simple_heat_pipe = {
+    type = "recipe",
+    name = "simple-heat-pipe",
+    categories = {"crafting"},
+    icons = data.raw.item["simple-heat-pipe"].icons,
+    energy_required = 2,
+    ingredients = {
+        {type = "item", name = "iron-plate", amount = 3},
+        {type = "item", name = "copper-cable", amount = 12},
+    },
+    results = {
+        {type = "item", name = "simple-heat-pipe", amount = 1}
+    },
+    enabled = true
+}
+
+for _, recipe in pairs(recipes) do
+    data:extend({recipe})
+end

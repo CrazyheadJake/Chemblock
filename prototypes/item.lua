@@ -1,3 +1,5 @@
+local items = {}
+
 -- Cupric asteroid chunk
 local cupric_asteroid_chunk = table.deepcopy(data.raw.item["metallic-asteroid-chunk"])
 cupric_asteroid_chunk.name = "cupric-asteroid-chunk"
@@ -8,6 +10,7 @@ cupric_asteroid_chunk.icons = {
     tint = {r=1,g=0.6,b=0}
   },
 }
+items.cupric_asteroid_chunk = cupric_asteroid_chunk
 
 -- Steam furnace
 local steam_furnace_item = table.deepcopy(data.raw.item["stone-furnace"])
@@ -20,6 +23,7 @@ steam_furnace_item.icons = {
   },
 }
 steam_furnace_item.place_result = "steam-furnace"
+items.steam_furnace = steam_furnace_item
 
 -- Steam crusher
 local steam_crusher_item = table.deepcopy(data.raw.item["crusher"])
@@ -32,6 +36,7 @@ steam_crusher_item.icons = {
   },
 }
 steam_crusher_item.place_result = "steam-crusher"
+items.steam_crusher = steam_crusher_item
 
 -- Steam asteroid collector
 local steam_asteroid_collector_item = table.deepcopy(data.raw.item["asteroid-collector"])
@@ -44,6 +49,7 @@ steam_asteroid_collector_item.icons = {
   },
 }
 steam_asteroid_collector_item.place_result = "steam-asteroid-collector"
+items.steam_asteroid_collector = steam_asteroid_collector_item
 
 -- Steam lab
 local steam_lab_item = table.deepcopy(data.raw.item["lab"])
@@ -56,7 +62,7 @@ steam_lab_item.icons = {
   },
 }
 steam_lab_item.place_result = "steam-lab"
-
+items.steam_lab = steam_lab_item
 
 -- Simple heat exchanger
 local simple_heat_exchanger = table.deepcopy(data.raw.item["heat-exchanger"])
@@ -69,6 +75,7 @@ simple_heat_exchanger.icons = {
   },
 }
 simple_heat_exchanger.place_result = "simple-heat-exchanger"
+items.simple_heat_exchanger = simple_heat_exchanger
 
 -- Sand
 local sand = table.deepcopy(data.raw.item["stone"])
@@ -81,6 +88,7 @@ sand.icons = {
     tint = {r=1,g=0.9,b=0.6}
   },
 }
+items.sand = sand
 
 -- Sublimator
 local sublimator_item = table.deepcopy(data.raw.item["assembling-machine-2"])
@@ -93,6 +101,7 @@ sublimator_item.icons = {
   },
 }
 sublimator_item.place_result = "sublimator"
+items.sublimator = sublimator_item
 
 -- Solar heater
 local solar_heater_item = table.deepcopy(data.raw.item["solar-panel"])
@@ -105,6 +114,7 @@ solar_heater_item.icons = {
   }
 }
 solar_heater_item.place_result = "solar-heater"
+items.solar_heater = solar_heater_item
 
 -- Solar inserter
 local solar_inserter_item = table.deepcopy(data.raw.item["burner-inserter"])
@@ -117,6 +127,7 @@ solar_inserter_item.icons = {
   }
 }
 solar_inserter_item.place_result = "solar-inserter"
+items.solar_inserter = solar_inserter_item
 
 -- Glass
 local glass = table.deepcopy(data.raw.item["iron-plate"])
@@ -128,17 +139,21 @@ glass.icons = {
     tint = {r=1,g=1,b=1,a=0.5}
   }
 }
+items.glass = glass
 
-data:extend({
-    cupric_asteroid_chunk,
-    steam_furnace_item,
-    steam_crusher_item,
-    steam_lab_item,
-    steam_asteroid_collector_item,
-    simple_heat_exchanger,
-    sand,
-    sublimator_item,
-    solar_heater_item,
-    solar_inserter_item,
-    glass,
-})
+-- Simple heat pipe
+local simple_heat_pipe = table.deepcopy(data.raw.item["heat-pipe"])
+simple_heat_pipe.name = "simple-heat-pipe"
+simple_heat_pipe.icons = {
+    {
+    icon = simple_heat_pipe.icon,
+    icon_size = simple_heat_pipe.icon_size,
+    tint = {r=0.8,g=0.8,b=1}
+  }
+}
+simple_heat_pipe.place_result = "simple-heat-pipe"
+items.simple_heat_pipe = simple_heat_pipe
+
+for _, item in pairs(items) do
+    data:extend({item})
+end
