@@ -14,6 +14,7 @@ end
 
 require("scripts.dropped_smelting")
 require("scripts.platform")
+require("scripts.steam_collector")
 
 for nth, funcs in pairs(nth_ticks) do
   script.on_nth_tick(nth, function(event)
