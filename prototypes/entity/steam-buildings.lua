@@ -142,10 +142,45 @@ local collector_tank = {
   },
 }
 
+local steam_lab = table.deepcopy(data.raw["lab"]["lab"])
+steam_lab.name = "steam-lab"
+steam_lab.icons = {
+    {
+    icon = steam_lab.icon,
+    icon_size = steam_lab.icon_size,
+    tint = {r=0.3,g=0.3,b=0.3}
+  },
+}
+steam_lab.energy_source = {
+  type = "fluid",
+  burns_fluid = true,
+  effectivity = 1,
+  maximum_temperature = 165,
+  fluid_box = {
+    production_type = "input",
+    filter = "steam",
+    volume = 200,
+    pipe_covers = pipecoverspictures(),
+    -- Labs cannot be rotated -- that is fixed per prototype type in the engine,
+    -- not something a flag can switch on -- so instead of one inlet that would be
+    -- stuck facing south, there is one on every side. Same approach vanilla's
+    -- storage tank takes. The lab is 3x3, so each is the centre of an edge row.
+    pipe_connections = {
+      {flow_direction = "input", direction = defines.direction.north, position = {0, -1}},
+      {flow_direction = "input", direction = defines.direction.south, position = {0, 1}},
+      {flow_direction = "input", direction = defines.direction.east, position = {1, 0}},
+      {flow_direction = "input", direction = defines.direction.west, position = {-1, 0}},
+    },
+  },
+}
+steam_lab.minable.result = "steam-lab"
+
+
 data:extend({
     steam_furnace,
     steam_crusher,
     steam_asteroid_collector,
     inert_category,
     collector_tank,
+    steam_lab,
 })

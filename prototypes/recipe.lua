@@ -74,6 +74,23 @@ steam_asteroid_collector_recipe.ingredients =
 steam_asteroid_collector_recipe.results = {{type = "item", name = "steam-asteroid-collector", amount = 1}}
 steam_asteroid_collector_recipe.enabled = true
 
+-- Steam lab recipe
+local steam_lab_recipe = {
+    type = "recipe",
+    name = "steam-lab",
+    categories = {"crafting"},
+    icons = data.raw.item["steam-lab"].icons,
+    ingredients = {
+        {type = "item", name = "transport-belt", amount = 4},
+        {type = "item", name = "pipe", amount = 8},
+        {type = "item", name = "iron-gear-wheel", amount = 10},
+        {type = "item", name = "glass", amount = 10},
+    },
+    results = {
+        {type = "item", name = "steam-lab", amount = 1}
+    },
+    enabled = true}
+
 -- Simple heat exchanger recipe
 local simple_heat_exchanger_recipe = {
     type = "recipe",
@@ -219,6 +236,7 @@ data:extend({
     cupric_crushing_recipe,
     steam_furnace_recipe,
     steam_crusher_recipe,
+    steam_lab_recipe,
     steam_asteroid_collector_recipe,
     stone_crushing_recipe,
     stone_crushing_by_hand_recipe,
