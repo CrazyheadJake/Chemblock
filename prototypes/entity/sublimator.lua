@@ -14,8 +14,6 @@ sublimator.energy_source = {
   type = "void"
 }
 
-data:extend(
-    {
-        sublimator,
-    }
-)
+data:extend({
+    sublimator,
+})

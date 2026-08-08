@@ -31,8 +31,6 @@ steam_furnace.minable.result = "steam-furnace"
 steam_furnace.surface_conditions = {}
 steam_furnace.use_mirroring = true
 
-data:extend(
-    {
-        steam_furnace,
-    }
-)
+data:extend({
+    steam_furnace,
+})

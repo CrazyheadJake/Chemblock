@@ -16,8 +16,6 @@ simple_heat_exchanger.energy_source.specific_heat = "10kJ"
 simple_heat_exchanger.energy_source.max_temperature = 300
 
 
-data:extend(
-    {
-        simple_heat_exchanger,
-    }
-)
+data:extend({
+    simple_heat_exchanger,
+})

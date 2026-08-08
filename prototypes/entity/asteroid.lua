@@ -67,9 +67,7 @@ resource_asteroid.custom_tooltip_fields = {
     }
 }
 
-data:extend(
-    {
-        cupric_asteroid_chunk,
-        resource_asteroid,
-    }
-)
+data:extend({
+    cupric_asteroid_chunk,
+    resource_asteroid,
+})

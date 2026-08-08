@@ -154,16 +154,14 @@ local solar_heater_recipe = {
     enabled = true
 }
 
-data:extend(
-    {
-        space_station_recipe,
-        cupric_crushing_recipe,
-        steam_furnace_recipe,
-        stone_crushing_recipe,
-        stone_crushing_by_hand_recipe,
-        simple_heat_exchanger_recipe,
-        ice_sublimation_recipe,
-        sublimator_recipe,
-        solar_heater_recipe,
-    }
-)
+data:extend({
+    space_station_recipe,
+    cupric_crushing_recipe,
+    steam_furnace_recipe,
+    stone_crushing_recipe,
+    stone_crushing_by_hand_recipe,
+    simple_heat_exchanger_recipe,
+    ice_sublimation_recipe,
+    sublimator_recipe,
+    solar_heater_recipe,
+})

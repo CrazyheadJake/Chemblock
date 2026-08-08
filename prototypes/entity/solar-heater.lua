@@ -53,9 +53,7 @@ solar_heater_3x = table.deepcopy(solar_heater)
 solar_heater_3x.name = "solar-heater-3x"
 solar_heater_3x.consumption = "360kW"
 
-data:extend(
-    {
-        solar_heater,
-        solar_heater_3x
-    }
-)
+data:extend({
+    solar_heater,
+    solar_heater_3x
+})
