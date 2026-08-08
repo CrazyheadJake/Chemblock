@@ -1,7 +1,7 @@
 require("prototypes.item")
 require("prototypes.recipe")
 require("prototypes.entity.asteroid")
-require("prototypes.entity.steam-furnace")
+require("prototypes.entity.steam-buildings")
 require("prototypes.entity.simple-heat-exchanger")
 require("prototypes.entity.sublimator")
 require("prototypes.entity.solar-heater")

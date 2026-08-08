@@ -16,10 +16,34 @@ steam_furnace_item.icons = {
     {
     icon = steam_furnace_item.icon,
     icon_size = steam_furnace_item.icon_size,
-    tint = {r=0.8,g=0.8,b=1}
+    tint = {r=0.6,g=0.6,b=0.6}
   },
 }
 steam_furnace_item.place_result = "steam-furnace"
+
+-- Steam crusher
+local steam_crusher_item = table.deepcopy(data.raw.item["crusher"])
+steam_crusher_item.name = "steam-crusher"
+steam_crusher_item.icons = {
+    {
+    icon = steam_crusher_item.icon,
+    icon_size = steam_crusher_item.icon_size,
+    tint = {r=0.6,g=0.6,b=0.6}
+  },
+}
+steam_crusher_item.place_result = "steam-crusher"
+
+-- Steam asteroid collector
+local steam_asteroid_collector_item = table.deepcopy(data.raw.item["asteroid-collector"])
+steam_asteroid_collector_item.name = "steam-asteroid-collector"
+steam_asteroid_collector_item.icons = {
+    {
+    icon = steam_asteroid_collector_item.icon,
+    icon_size = steam_asteroid_collector_item.icon_size,
+    tint = {r=0.6,g=0.6,b=0.6}
+  },
+}
+steam_asteroid_collector_item.place_result = "steam-asteroid-collector"
 
 -- Simple heat exchanger
 local simple_heat_exchanger = table.deepcopy(data.raw.item["heat-exchanger"])
@@ -72,6 +96,8 @@ solar_heater_item.place_result = "solar-heater"
 data:extend({
     cupric_asteroid_chunk,
     steam_furnace_item,
+    steam_crusher_item,
+    steam_asteroid_collector_item,
     simple_heat_exchanger,
     sand,
     sublimator_item,

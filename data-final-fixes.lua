@@ -28,3 +28,4 @@ data.raw.recipe["carbonic-asteroid-crushing"].results = {
     {type = "item", name = "stone", amount = 10},
     {type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability = 0.3}
 }
+data.raw.fluid["steam"].fuel_value = "20kJ"

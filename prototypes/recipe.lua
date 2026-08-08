@@ -48,6 +48,32 @@ steam_furnace_recipe.ingredients =
 steam_furnace_recipe.results = {{type = "item", name = "steam-furnace", amount = 1}}
 steam_furnace_recipe.enabled = true
 
+-- Steam crusher recipe
+local steam_crusher_recipe = table.deepcopy(data.raw.recipe["crusher"])
+steam_crusher_recipe.name = "steam-crusher"
+steam_crusher_recipe.icons = data.raw.item["steam-crusher"].icons
+steam_crusher_recipe.ingredients =
+    {
+      {type = "item", name = "stone-brick", amount = 5},
+      {type = "item", name = "pipe", amount = 6},
+      {type = "item", name = "iron-gear-wheel", amount = 10},
+    }
+steam_crusher_recipe.results = {{type = "item", name = "steam-crusher", amount = 1}}
+steam_crusher_recipe.enabled = true
+
+-- Steam asteroid collector recipe
+local steam_asteroid_collector_recipe = table.deepcopy(data.raw.recipe["asteroid-collector"])
+steam_asteroid_collector_recipe.name = "steam-asteroid-collector"
+steam_asteroid_collector_recipe.icons = data.raw.item["steam-asteroid-collector"].icons
+steam_asteroid_collector_recipe.ingredients =
+    {
+      {type = "item", name = "stone-brick", amount = 10},
+      {type = "item", name = "pipe", amount = 8},
+      {type = "item", name = "iron-plate", amount = 12},
+    }
+steam_asteroid_collector_recipe.results = {{type = "item", name = "steam-asteroid-collector", amount = 1}}
+steam_asteroid_collector_recipe.enabled = true
+
 -- Simple heat exchanger recipe
 local simple_heat_exchanger_recipe = {
     type = "recipe",
@@ -158,6 +184,8 @@ data:extend({
     space_station_recipe,
     cupric_crushing_recipe,
     steam_furnace_recipe,
+    steam_crusher_recipe,
+    steam_asteroid_collector_recipe,
     stone_crushing_recipe,
     stone_crushing_by_hand_recipe,
     simple_heat_exchanger_recipe,
