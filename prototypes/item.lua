@@ -64,6 +64,19 @@ steam_lab_item.icons = {
 steam_lab_item.place_result = "steam-lab"
 items.steam_lab = steam_lab_item
 
+-- Steam assembler
+local steam_assembler = table.deepcopy(data.raw.item["assembling-machine-1"])
+steam_assembler.name = "steam-assembling-machine"
+steam_assembler.icons = {
+    {
+    icon = steam_assembler.icon,
+    icon_size = steam_assembler.icon_size,
+    tint = {r=0.3,g=0.3,b=0.3}
+  },
+}
+steam_assembler.place_result = "steam-assembling-machine"
+items.steam_assembler = steam_assembler
+
 -- Simple heat exchanger
 local simple_heat_exchanger = table.deepcopy(data.raw.item["heat-exchanger"])
 simple_heat_exchanger.name = "simple-heat-exchanger"

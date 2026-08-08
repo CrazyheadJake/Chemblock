@@ -96,7 +96,25 @@ recipes.steam_lab = {
     results = {
         {type = "item", name = "steam-lab", amount = 1}
     },
-    enabled = true}
+    enabled = true
+}
+
+-- Steam assembler
+recipes.steam_assembler = {
+    type = "recipe",
+    name = "steam-assembling-machine",
+    categories = {"crafting"},
+    icons = data.raw.item["steam-assembling-machine"].icons,
+    ingredients = {
+        {type = "item", name = "stone-brick", amount = 10},
+        {type = "item", name = "pipe", amount = 6},
+        {type = "item", name = "iron-gear-wheel", amount = 5},
+    },
+    results = {
+        {type = "item", name = "steam-assembling-machine", amount = 1}
+    },
+    enabled = true
+}
 
 -- Simple heat exchanger recipe
 recipes.simple_heat_exchanger = {

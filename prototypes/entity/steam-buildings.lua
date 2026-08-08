@@ -175,6 +175,32 @@ steam_lab.energy_source = {
 }
 steam_lab.minable.result = "steam-lab"
 
+-- Steam assembler
+local steam_assembler = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-1"])
+steam_assembler.name = "steam-assembling-machine"
+steam_assembler.icons = {
+    {
+    icon = steam_assembler.icon,
+    icon_size = steam_assembler.icon_size,
+    tint = {r=0.3,g=0.3,b=0.3}
+  },
+}
+steam_assembler.energy_source = {
+  type = "fluid",
+  burns_fluid = true,
+  effectivity = 1,
+  maximum_temperature = 165,
+  fluid_box = {
+    production_type = "input",
+    filter = "steam",
+    volume = 200,
+    pipe_covers = pipecoverspictures(),
+    pipe_connections = {
+      {flow_direction = "input", direction = defines.direction.north, position = {0, -1}},
+    },
+  },
+}
+steam_assembler.minable.result = "steam-assembling-machine"
 
 data:extend({
     steam_furnace,
@@ -183,4 +209,5 @@ data:extend({
     inert_category,
     collector_tank,
     steam_lab,
+    steam_assembler,
 })

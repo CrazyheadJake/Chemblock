@@ -1,5 +1,6 @@
 local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
 
+-- Asteroid spawning edits
 table.insert(data.raw.planet.nauvis.asteroid_spawn_definitions,
   {
     type = "asteroid-chunk",
@@ -20,7 +21,10 @@ table.insert(data.raw.planet.nauvis.asteroid_spawn_definitions,
   }
 )
 
+-- Give steam a fuel value
+data.raw.fluid["steam"].fuel_value = "20kJ"
 
+-- Recipe edits
 data.raw.recipe["metallic-asteroid-crushing"].enabled = true
 data.raw.recipe["oxide-asteroid-crushing"].enabled = true
 data.raw.recipe["carbonic-asteroid-crushing"].enabled = true
@@ -28,8 +32,16 @@ data.raw.recipe["carbonic-asteroid-crushing"].results = {
   {type = "item", name = "stone", amount = 10},
   {type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability = 0.3}
 }
-data.raw.fluid["steam"].fuel_value = "20kJ"
+
 data.raw.recipe["space-platform-foundation"].ingredients = {
   {type = "item", name = "stone", amount = 5},
   {type = "item", name = "iron-plate", amount = 8},
 }
+
+-- Science pack edits
+data.raw.recipe["automation-science-pack"].ingredients = {
+  {type = "item", name = "iron-gear-wheel", amount = 1},
+  {type = "item", name = "copper-plate", amount = 1},
+  {type = "item", name = "ice", amount = 1},
+}
+

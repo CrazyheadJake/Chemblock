@@ -13,6 +13,7 @@ sublimator.crafting_speed = 1
 sublimator.energy_source = {
   type = "void"
 }
+sublimator.minable.result = "sublimator"
 
 data:extend({
     sublimator,
