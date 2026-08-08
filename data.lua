@@ -1,9 +1,11 @@
 require("prototypes.item")
-require("prototypes.recipe")
 require("prototypes.entity.asteroid")
+require("prototypes.entity.solar-inserter")
 require("prototypes.entity.steam-buildings")
 require("prototypes.entity.simple-heat-exchanger")
 require("prototypes.entity.sublimator")
 require("prototypes.entity.solar-heater")
 require("prototypes.environment.space-rock")
 require("prototypes.entity.station")
+
+require("prototypes.recipe")

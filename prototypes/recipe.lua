@@ -180,6 +180,40 @@ local solar_heater_recipe = {
     enabled = true
 }
 
+-- Solar inserter
+local solar_inserter_recipe = {
+    type = "recipe",
+    name = "solar-inserter",
+    categories = {"crafting"},
+    icons = data.raw.item["solar-inserter"].icons,
+    energy_required = 4,
+    ingredients = {
+        {type = "item", name = "iron-gear-wheel", amount = 6},
+        {type = "item", name = "glass", amount = 4},
+        {type = "item", name = "ice", amount = 3}
+    },
+    results = {
+        {type = "item", name = "solar-inserter", amount = 1}
+    },
+    enabled = true
+}
+
+-- Glass
+local glass_recipe = {
+    type = "recipe",
+    name = "glass",
+    categories = {"smelting"},
+    icons = data.raw.item["glass"].icons,
+    energy_required = 4,
+    ingredients = {
+        {type = "item", name = "sand", amount = 2},
+    },
+    results = {
+        {type = "item", name = "glass", amount = 1}
+    },
+    enabled = true
+}
+
 data:extend({
     space_station_recipe,
     cupric_crushing_recipe,
@@ -192,4 +226,6 @@ data:extend({
     ice_sublimation_recipe,
     sublimator_recipe,
     solar_heater_recipe,
+    solar_inserter_recipe,
+    glass_recipe,
 })

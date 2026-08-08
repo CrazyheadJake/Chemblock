@@ -93,6 +93,29 @@ solar_heater_item.icons = {
 }
 solar_heater_item.place_result = "solar-heater"
 
+-- Solar inserter
+local solar_inserter_item = table.deepcopy(data.raw.item["burner-inserter"])
+solar_inserter_item.name = "solar-inserter"
+solar_inserter_item.icons = {
+    {
+    icon = solar_inserter_item.icon,
+    icon_size = solar_inserter_item.icon_size,
+    tint = {r=1,g=0.4,b=0}
+  }
+}
+solar_inserter_item.place_result = "solar-inserter"
+
+-- Glass
+local glass = table.deepcopy(data.raw.item["iron-plate"])
+glass.name = "glass"
+glass.icons = {
+    {
+    icon = glass.icon,
+    icon_size = glass.icon_size,
+    tint = {r=1,g=1,b=1,a=0.5}
+  }
+}
+
 data:extend({
     cupric_asteroid_chunk,
     steam_furnace_item,
@@ -102,4 +125,6 @@ data:extend({
     sand,
     sublimator_item,
     solar_heater_item,
+    solar_inserter_item,
+    glass,
 })
