@@ -16,7 +16,7 @@ space_station_recipe.ingredients =
       {type = "item", name = "steel-plate", amount = 20},
     }
 space_station_recipe.results = {{type="item", name="space-station-starter-pack", amount=1}}
-space_station_recipe.enabled = true
+space_station_recipe.enabled = false
 recipes.space_station = space_station_recipe
 
 -- Cupric asteroid crushing recipe
@@ -37,7 +37,7 @@ cupric_crushing_recipe.results =
       {type = "item", name = "copper-ore", amount = 20},
       {type = "item", name = "cupric-asteroid-chunk", amount = 1, independent_probability = 0.3}
     }
-cupric_crushing_recipe.enabled = true
+cupric_crushing_recipe.enabled = false
 recipes.cupric_crushing = cupric_crushing_recipe
 
 -- Steam furnace recipe
@@ -50,7 +50,7 @@ steam_furnace_recipe.ingredients =
       {type = "item", name = "pipe", amount = 4},
     }
 steam_furnace_recipe.results = {{type = "item", name = "steam-furnace", amount = 1}}
-steam_furnace_recipe.enabled = true
+steam_furnace_recipe.enabled = false
 recipes.steam_furnace = steam_furnace_recipe
 
 -- Steam crusher recipe
@@ -64,7 +64,7 @@ steam_crusher_recipe.ingredients =
       {type = "item", name = "iron-gear-wheel", amount = 10},
     }
 steam_crusher_recipe.results = {{type = "item", name = "steam-crusher", amount = 1}}
-steam_crusher_recipe.enabled = true
+steam_crusher_recipe.enabled = false
 recipes.steam_crusher = steam_crusher_recipe
 
 -- Steam asteroid collector recipe
@@ -78,7 +78,7 @@ steam_asteroid_collector_recipe.ingredients =
       {type = "item", name = "iron-plate", amount = 12},
     }
 steam_asteroid_collector_recipe.results = {{type = "item", name = "steam-asteroid-collector", amount = 1}}
-steam_asteroid_collector_recipe.enabled = true
+steam_asteroid_collector_recipe.enabled = false
 recipes.steam_asteroid_collector = steam_asteroid_collector_recipe
 
 -- Steam lab recipe
@@ -92,11 +92,12 @@ recipes.steam_lab = {
         {type = "item", name = "pipe", amount = 8},
         {type = "item", name = "iron-gear-wheel", amount = 10},
         {type = "item", name = "glass", amount = 10},
+        {type = "item", name = "copper-cable", amount = 8},
     },
     results = {
         {type = "item", name = "steam-lab", amount = 1}
     },
-    enabled = true
+    enabled = false
 }
 
 -- Steam assembler
@@ -113,7 +114,7 @@ recipes.steam_assembler = {
     results = {
         {type = "item", name = "steam-assembling-machine", amount = 1}
     },
-    enabled = true
+    enabled = false
 }
 
 -- Simple heat exchanger recipe
@@ -130,7 +131,7 @@ recipes.simple_heat_exchanger = {
     results = {
         {type = "item", name = "simple-heat-exchanger", amount = 1}
     },
-    enabled = true
+    enabled = false
 }
 
 -- Stone crushing recipe
@@ -219,7 +220,7 @@ recipes.solar_heater = {
     results = {
         {type = "item", name = "solar-heater", amount = 1}
     },
-    enabled = true
+    enabled = false
 }
 
 -- Solar inserter
@@ -270,7 +271,7 @@ recipes.simple_heat_pipe = {
     results = {
         {type = "item", name = "simple-heat-pipe", amount = 1}
     },
-    enabled = true
+    enabled = false
 }
 
 for _, recipe in pairs(recipes) do

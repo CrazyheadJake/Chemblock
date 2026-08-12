@@ -25,9 +25,6 @@ table.insert(data.raw.planet.nauvis.asteroid_spawn_definitions,
 data.raw.fluid["steam"].fuel_value = "20kJ"
 
 -- Recipe edits
-data.raw.recipe["metallic-asteroid-crushing"].enabled = true
-data.raw.recipe["oxide-asteroid-crushing"].enabled = true
-data.raw.recipe["carbonic-asteroid-crushing"].enabled = true
 data.raw.recipe["carbonic-asteroid-crushing"].results = {
   {type = "item", name = "stone", amount = 10},
   {type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability = 0.3}
@@ -45,3 +42,5 @@ data.raw.recipe["automation-science-pack"].ingredients = {
   {type = "item", name = "ice", amount = 1},
 }
 
+-- Technology edits
+require("prototypes.technology")
