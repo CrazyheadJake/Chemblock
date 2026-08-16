@@ -1,5 +1,5 @@
 local SMELTING_TIME = 10
-local SMELTABLE_ITEMS = {["iron-ore"] = "iron-plate", ["copper-ore"] = "copper-plate"}
+local SMELTABLE_ITEMS = { ["iron-ore"] = "iron-plate", ["copper-ore"] = "copper-plate" }
 
 register_nth_tick(60, function(event)
   local dropped_items = storage.dropped_items or {}
@@ -17,16 +17,15 @@ register_nth_tick(60, function(event)
       item.destroy()
       surface.spill_item_stack({
         position = position,
-        stack = {name=result, count=1}
+        stack = { name = result, count = 1 }
       })
       -- Make the item appear to be "crafted" for trigger techs
       if force and force.valid then
         force.get_item_production_statistics(surface).on_flow(result, 1)
       end
       table.remove(storage.dropped_items, index)
-      
     end
-      ::continue::
+    ::continue::
   end
 end)
 
@@ -43,4 +42,3 @@ register_event(defines.events.on_player_dropped_item, function(event)
     force = player and player.force or nil,
   })
 end)
-

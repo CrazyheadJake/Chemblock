@@ -1,10 +1,10 @@
 local steam_furnace = table.deepcopy(data.raw.furnace["stone-furnace"])
 steam_furnace.name = "steam-furnace"
 steam_furnace.icons = {
-    {
+  {
     icon = steam_furnace.icon,
     icon_size = steam_furnace.icon_size,
-    tint = {r=0.6,g=0.6,b=0.6}
+    tint = { r = 0.6, g = 0.6, b = 0.6 }
   },
 }
 steam_furnace.energy_source = {
@@ -17,13 +17,13 @@ steam_furnace.energy_source = {
     -- render_layer = "higher-object-above",
     pipe_connections =
     {
-      {flow_direction = "input-output", direction = defines.direction.north, position = {-0.5, -0.5}},
-      {flow_direction = "input-output", direction = defines.direction.south, position = {0.5, 0.5}},
+      { flow_direction = "input-output", direction = defines.direction.north, position = { -0.5, -0.5 } },
+      { flow_direction = "input-output", direction = defines.direction.south, position = { 0.5, 0.5 } },
     },
   },
-  burns_fluid = true,        
+  burns_fluid = true,
   effectivity = 1,
-  maximum_temperature = 165,  -- same cap the vanilla steam engine uses
+  maximum_temperature = 165, -- same cap the vanilla steam engine uses
 }
 
 steam_furnace.minable.result = "steam-furnace"
@@ -33,10 +33,10 @@ steam_furnace.use_mirroring = true
 local steam_crusher = table.deepcopy(data.raw["assembling-machine"]["crusher"])
 steam_crusher.name = "steam-crusher"
 steam_crusher.icons = {
-    {
+  {
     icon = steam_crusher.icon,
     icon_size = steam_crusher.icon_size,
-    tint = {r=0.6,g=0.6,b=0.6}
+    tint = { r = 0.6, g = 0.6, b = 0.6 }
   },
 }
 steam_crusher.energy_source = {
@@ -49,24 +49,24 @@ steam_crusher.energy_source = {
     -- render_layer = "higher-object-above",
     pipe_connections =
     {
-      {flow_direction = "input", direction = defines.direction.west, position = {-0.5, 0}},
+      { flow_direction = "input", direction = defines.direction.west, position = { -0.5, 0 } },
     },
   },
-  burns_fluid = true,        
+  burns_fluid = true,
   effectivity = 1,
-  maximum_temperature = 165,  -- same cap the vanilla steam engine uses
+  maximum_temperature = 165, -- same cap the vanilla steam engine uses
 }
 steam_crusher.minable.result = "steam-crusher"
 steam_crusher.surface_conditions = {}
 steam_crusher.use_mirroring = true
 
-local steam_asteroid_collector= table.deepcopy(data.raw["asteroid-collector"]["asteroid-collector"])
+local steam_asteroid_collector = table.deepcopy(data.raw["asteroid-collector"]["asteroid-collector"])
 steam_asteroid_collector.name = "steam-asteroid-collector"
 steam_asteroid_collector.icons = {
-    {
+  {
     icon = steam_asteroid_collector.icon,
     icon_size = steam_asteroid_collector.icon_size,
-    tint = {r=0.6,g=0.6,b=0.6}
+    tint = { r = 0.6, g = 0.6, b = 0.6 }
   },
 }
 -- AsteroidCollectorPrototype only accepts ElectricEnergySource or
@@ -74,7 +74,7 @@ steam_asteroid_collector.icons = {
 -- Void keeps it off the electric system entirely: no network to join, and no
 -- electricity line in the tooltip. Steam is enforced by scripts/steam_collector,
 -- which drains the hidden tank below and flips disabled_by_script.
-steam_asteroid_collector.energy_source = {type = "void"}
+steam_asteroid_collector.energy_source = { type = "void" }
 steam_asteroid_collector.minable.result = "steam-asteroid-collector"
 
 -- Steam is billed by watching the output inventory grow, so anything else that
@@ -116,13 +116,13 @@ local collector_tank = {
     -- box in the middle of the collector when holding an inserter.
     "no-automated-item-removal", "no-automated-item-insertion",
   },
-  crafting_categories = {inert_category.name},
+  crafting_categories = { inert_category.name },
   crafting_speed = 1,
   energy_usage = "1W",
   -- Empty layers means it collides with nothing, but the box still has to be
   -- real: pipe connection positions must lie inside the bounding box.
-  collision_mask = {layers = {}},
-  collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+  collision_mask = { layers = {} },
+  collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
   energy_source = {
     type = "fluid",
     burns_fluid = true,
@@ -136,7 +136,7 @@ local collector_tank = {
       pipe_connections = {
         -- y = 1 is the centre of the southern tile row of a 3x3, so this lands
         -- on the collector's south edge.
-        {flow_direction = "input", direction = defines.direction.south, position = {0, 1}},
+        { flow_direction = "input", direction = defines.direction.south, position = { 0, 1 } },
       },
     },
   },
@@ -145,10 +145,10 @@ local collector_tank = {
 local steam_lab = table.deepcopy(data.raw["lab"]["lab"])
 steam_lab.name = "steam-lab"
 steam_lab.icons = {
-    {
+  {
     icon = steam_lab.icon,
     icon_size = steam_lab.icon_size,
-    tint = {r=0.3,g=0.3,b=0.3}
+    tint = { r = 0.3, g = 0.3, b = 0.3 }
   },
 }
 steam_lab.energy_source = {
@@ -166,10 +166,10 @@ steam_lab.energy_source = {
     -- stuck facing south, there is one on every side. Same approach vanilla's
     -- storage tank takes. The lab is 3x3, so each is the centre of an edge row.
     pipe_connections = {
-      {flow_direction = "input", direction = defines.direction.north, position = {0, -1}},
-      {flow_direction = "input", direction = defines.direction.south, position = {0, 1}},
-      {flow_direction = "input", direction = defines.direction.east, position = {1, 0}},
-      {flow_direction = "input", direction = defines.direction.west, position = {-1, 0}},
+      { flow_direction = "input", direction = defines.direction.north, position = { 0, -1 } },
+      { flow_direction = "input", direction = defines.direction.south, position = { 0, 1 } },
+      { flow_direction = "input", direction = defines.direction.east,  position = { 1, 0 } },
+      { flow_direction = "input", direction = defines.direction.west,  position = { -1, 0 } },
     },
   },
 }
@@ -179,10 +179,10 @@ steam_lab.minable.result = "steam-lab"
 local steam_assembler = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-1"])
 steam_assembler.name = "steam-assembling-machine"
 steam_assembler.icons = {
-    {
+  {
     icon = steam_assembler.icon,
     icon_size = steam_assembler.icon_size,
-    tint = {r=0.3,g=0.3,b=0.3}
+    tint = { r = 0.3, g = 0.3, b = 0.3 }
   },
 }
 steam_assembler.energy_source = {
@@ -196,18 +196,18 @@ steam_assembler.energy_source = {
     volume = 200,
     pipe_covers = pipecoverspictures(),
     pipe_connections = {
-      {flow_direction = "input", direction = defines.direction.north, position = {0, -1}},
+      { flow_direction = "input", direction = defines.direction.north, position = { 0, -1 } },
     },
   },
 }
 steam_assembler.minable.result = "steam-assembling-machine"
 
 data:extend({
-    steam_furnace,
-    steam_crusher,
-    steam_asteroid_collector,
-    inert_category,
-    collector_tank,
-    steam_lab,
-    steam_assembler,
+  steam_furnace,
+  steam_crusher,
+  steam_asteroid_collector,
+  inert_category,
+  collector_tank,
+  steam_lab,
+  steam_assembler,
 })

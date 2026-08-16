@@ -26,20 +26,20 @@ data.raw.fluid["steam"].fuel_value = "20kJ"
 
 -- Recipe edits
 data.raw.recipe["carbonic-asteroid-crushing"].results = {
-  {type = "item", name = "stone", amount = 10},
-  {type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability = 0.3}
+  { type = "item", name = "stone",                   amount = 10 },
+  { type = "item", name = "carbonic-asteroid-chunk", amount = 1, independent_probability = 0.3 }
 }
 
 data.raw.recipe["space-platform-foundation"].ingredients = {
-  {type = "item", name = "stone", amount = 5},
-  {type = "item", name = "iron-plate", amount = 8},
+  { type = "item", name = "stone",      amount = 5 },
+  { type = "item", name = "iron-plate", amount = 8 },
 }
 
 -- Science pack edits
 data.raw.recipe["automation-science-pack"].ingredients = {
-  {type = "item", name = "iron-gear-wheel", amount = 1},
-  {type = "item", name = "copper-plate", amount = 1},
-  {type = "item", name = "ice", amount = 1},
+  { type = "item", name = "iron-gear-wheel", amount = 1 },
+  { type = "item", name = "copper-plate",    amount = 1 },
+  { type = "item", name = "ice",             amount = 1 },
 }
 
 -- Technology edits

@@ -1,10 +1,10 @@
 local simple_heat_exchanger = table.deepcopy(data.raw.boiler["heat-exchanger"])
 simple_heat_exchanger.name = "simple-heat-exchanger"
 simple_heat_exchanger.icons = {
-    {
+  {
     icon = simple_heat_exchanger.icon,
     icon_size = simple_heat_exchanger.icon_size,
-    tint = {r=0.8,g=0.8,b=1}
+    tint = { r = 0.8, g = 0.8, b = 1 }
   },
 }
 simple_heat_exchanger.minable.result = "simple-heat-exchanger"
@@ -17,5 +17,5 @@ simple_heat_exchanger.energy_source.max_temperature = 300
 
 
 data:extend({
-    simple_heat_exchanger,
+  simple_heat_exchanger,
 })

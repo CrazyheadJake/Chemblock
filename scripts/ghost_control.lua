@@ -8,7 +8,7 @@
 -- are moved onto a force the hub doesn't serve, and just sit there.
 
 local GHOST_FORCE = "chemblock-ghosts"
-local GHOST_NAMES = {["entity-ghost"] = true, ["tile-ghost"] = true}
+local GHOST_NAMES = { ["entity-ghost"] = true, ["tile-ghost"] = true }
 
 -- Created lazily rather than in on_init, so this works on saves that already
 -- exist and doesn't need a hook in control.lua's single on_init.
@@ -49,7 +49,7 @@ end)
 register_nth_tick(60, function()
   for _, surface in pairs(game.surfaces) do
     for name in pairs(GHOST_NAMES) do
-      for _, ghost in pairs(surface.find_entities_filtered{name = name, force = "player"}) do
+      for _, ghost in pairs(surface.find_entities_filtered { name = name, force = "player" }) do
         ghost.force = get_ghost_force()
       end
     end
@@ -66,7 +66,7 @@ local function clear_parked_ghosts(event)
   local force = game.forces[GHOST_FORCE]
   if not force then return end
 
-  for _, ghost in pairs(event.surface.find_entities_filtered{area = event.area, force = force}) do
+  for _, ghost in pairs(event.surface.find_entities_filtered { area = event.area, force = force }) do
     if GHOST_NAMES[ghost.name] then
       ghost.destroy()
     end

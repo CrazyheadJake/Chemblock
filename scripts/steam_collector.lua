@@ -20,7 +20,7 @@ local STEAM_PER_CHUNK = 4
 local INTERVAL = 1
 
 local function attach_tank(collector)
-  local tank = collector.surface.create_entity{
+  local tank = collector.surface.create_entity {
     name = TANK,
     position = collector.position,
     force = collector.force,
@@ -32,7 +32,7 @@ local function attach_tank(collector)
   tank.destructible = false
 
   storage.steam_collectors = storage.steam_collectors or {}
-  storage.steam_collectors[collector.unit_number] = {collector = collector, tank = tank}
+  storage.steam_collectors[collector.unit_number] = { collector = collector, tank = tank }
 end
 
 local function detach_tank(unit_number)
@@ -45,7 +45,7 @@ end
 
 local function on_built(event)
   if event.entity and event.entity.valid and event.entity.name == COLLECTOR then
-    event.entity.disabled_by_script = true 
+    event.entity.disabled_by_script = true
     attach_tank(event.entity)
   end
 end
@@ -136,10 +136,10 @@ local function update_status(collector, tank, steam, fueled)
 
   local diode
   if not fueled then
-    diode = defines.entity_status_diode.red      -- out of steam
-  else 
-    diode = defines.entity_status_diode.green    -- just landed a chunk
- end
+    diode = defines.entity_status_diode.red   -- out of steam
+  else
+    diode = defines.entity_status_diode.green -- just landed a chunk
+  end
 
   collector.custom_status = {
     diode = diode,
@@ -185,7 +185,7 @@ register_nth_tick(INTERVAL, function(event)
       -- bill when they are not the ones moving items around.
       local collected = chunks_collected(pair)
       local player_handled = pair.gui_open
-        or (pair.suppress_until ~= nil and event.tick <= pair.suppress_until)
+          or (pair.suppress_until ~= nil and event.tick <= pair.suppress_until)
 
       if fueled and collected > 0 and not player_handled then
         -- remove_fluid is positional in 2.x, and index comes first: (index, amount).
