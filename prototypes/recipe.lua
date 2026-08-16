@@ -46,7 +46,7 @@ steam_furnace_recipe.name = "steam-furnace"
 steam_furnace_recipe.icons = data.raw.item["steam-furnace"].icons
 steam_furnace_recipe.ingredients =
 {
-  { type = "item", name = "stone", amount = 10 },
+  { type = "item", name = "stone", amount = 5 },
   { type = "item", name = "pipe",  amount = 4 },
 }
 steam_furnace_recipe.results = { { type = "item", name = "steam-furnace", amount = 1 } }
@@ -59,9 +59,9 @@ steam_crusher_recipe.name = "steam-crusher"
 steam_crusher_recipe.icons = data.raw.item["steam-crusher"].icons
 steam_crusher_recipe.ingredients =
 {
-  { type = "item", name = "stone-brick",     amount = 5 },
-  { type = "item", name = "pipe",            amount = 6 },
-  { type = "item", name = "iron-gear-wheel", amount = 10 },
+  { type = "item", name = "stone-brick",     amount = 3 },
+  { type = "item", name = "pipe",            amount = 4 },
+  { type = "item", name = "iron-gear-wheel", amount = 5 },
 }
 steam_crusher_recipe.results = { { type = "item", name = "steam-crusher", amount = 1 } }
 steam_crusher_recipe.enabled = false
@@ -73,8 +73,8 @@ steam_asteroid_collector_recipe.name = "steam-asteroid-collector"
 steam_asteroid_collector_recipe.icons = data.raw.item["steam-asteroid-collector"].icons
 steam_asteroid_collector_recipe.ingredients =
 {
-  { type = "item", name = "stone-brick", amount = 10 },
-  { type = "item", name = "pipe",        amount = 8 },
+  { type = "item", name = "stone-brick", amount = 6 },
+  { type = "item", name = "pipe",        amount = 4 },
   { type = "item", name = "iron-plate",  amount = 12 },
 }
 steam_asteroid_collector_recipe.results = { { type = "item", name = "steam-asteroid-collector", amount = 1 } }
@@ -91,7 +91,7 @@ recipes.steam_lab = {
     { type = "item", name = "transport-belt",  amount = 4 },
     { type = "item", name = "pipe",            amount = 8 },
     { type = "item", name = "iron-gear-wheel", amount = 10 },
-    { type = "item", name = "glass",           amount = 10 },
+    { type = "item", name = "glass",           amount = 4 },
     { type = "item", name = "copper-cable",    amount = 8 },
   },
   results = {
@@ -107,8 +107,8 @@ recipes.steam_assembler = {
   categories = { "crafting" },
   icons = data.raw.item["steam-assembling-machine"].icons,
   ingredients = {
-    { type = "item", name = "stone-brick",     amount = 10 },
-    { type = "item", name = "pipe",            amount = 6 },
+    { type = "item", name = "stone-brick",     amount = 6 },
+    { type = "item", name = "pipe",            amount = 4 },
     { type = "item", name = "iron-gear-wheel", amount = 5 },
   },
   results = {
@@ -140,12 +140,12 @@ recipes.stone_crushing = {
   name = "stone-crushing",
   categories = { "crushing" },
   icons = data.raw.item["sand"].icons,
-  energy_required = 2,
+  energy_required = 8,
   ingredients = {
-    { type = "item", name = "stone", amount = 1 }
+    { type = "item", name = "stone", amount = 5 }
   },
   results = {
-    { type = "item", name = "sand", amount = 1 }
+    { type = "item", name = "sand", amount = 5 }
   },
   enabled = false
 }
@@ -174,7 +174,7 @@ recipes.sublimator = {
   icons = data.raw.item["sublimator"].icons,
   energy_required = 2,
   ingredients = {
-    { type = "item", name = "sand",            amount = 12 },
+    { type = "item", name = "sand",            amount = 4 },
     { type = "item", name = "iron-plate",      amount = 8 },
     { type = "item", name = "iron-gear-wheel", amount = 4 },
   },

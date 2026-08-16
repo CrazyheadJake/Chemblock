@@ -46,7 +46,7 @@ end
 data.raw.technology["steam-power"].research_trigger = {
   type = "craft-item",
   item = "iron-plate",
-  count = 50,
+  count = 30,
 }
 data.raw.technology["steam-power"].effects = {
   {
@@ -86,3 +86,11 @@ data.raw.technology["electronics"].effects = {
     recipe = "steam-lab"
   }
 }
+
+data.raw.technology["automation-science-pack"].research_trigger =
+{
+  type = "craft-item",
+  item = "steam-lab"
+}
+
+data.raw.technology[""]
