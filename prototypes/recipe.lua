@@ -142,10 +142,10 @@ recipes.stone_crushing = {
   icons = data.raw.item["sand"].icons,
   energy_required = 8,
   ingredients = {
-    { type = "item", name = "stone", amount = 5 }
+    { type = "item", name = "stone", amount = 6 }
   },
   results = {
-    { type = "item", name = "sand", amount = 5 }
+    { type = "item", name = "sand", amount = 6 }
   },
   enabled = false
 }
