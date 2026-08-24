@@ -35,6 +35,11 @@ data.raw.recipe["space-platform-foundation"].ingredients = {
   { type = "item", name = "iron-plate", amount = 8 },
 }
 
+-- Remove items that aren't needed
+data.raw.recipe["burner-inserter"].enabled = false
+data.raw.recipe["burner-mining-drill"].enabled = false
+data.raw.recipe["stone-furnace"].enabled = false
+
 -- Science pack edits
 data.raw.recipe["automation-science-pack"].ingredients = {
   { type = "item", name = "iron-gear-wheel", amount = 1 },
@@ -44,3 +49,6 @@ data.raw.recipe["automation-science-pack"].ingredients = {
 
 -- Technology edits
 require("prototypes.technology")
+
+-- Allow items to be placed on space platform
+

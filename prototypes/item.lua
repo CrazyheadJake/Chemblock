@@ -167,6 +167,19 @@ simple_heat_pipe.icons = {
 simple_heat_pipe.place_result = "simple-heat-pipe"
 items.simple_heat_pipe = simple_heat_pipe
 
+-- Iron electric pole
+local iron_electric_pole = table.deepcopy(data.raw.item["small-electric-pole"])
+iron_electric_pole.name = "iron-electric-pole"
+iron_electric_pole.icons = {
+  {
+    icon = iron_electric_pole.icon,
+    icon_size = iron_electric_pole.icon_size,
+    tint = { r = 0.6, g = 0.65, b = 0.75 }
+  }
+}
+iron_electric_pole.place_result = "iron-electric-pole"
+items.iron_electric_pole = iron_electric_pole
+
 for _, item in pairs(items) do
   data:extend({ item })
 end

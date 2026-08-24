@@ -34,9 +34,45 @@ techs.asteroid_crushing = {
     type = "build-entity",
     entity = "steam-crusher",
   },
-  prerequesites = { "steam-power" }
+  prerequisites = { "steam-power" }
 }
 
+-- Add basic electricity
+techs.basic_electricity = {
+  type = "technology",
+  name = "basic-electricity",
+  icon = "__base__/graphics/technology/electric-energy-acumulators.png",
+  icon_size = 256,
+  localised_name = { "technology-name.basic-electricity" },
+  effects = {
+    {
+      type = "unlock-recipe",
+      recipe = "iron-electric-pole"
+    },
+    {
+      type = "unlock-recipe",
+      recipe = "solar-heater"
+    },
+    {
+      type = "unlock-recipe",
+      recipe = "simple-heat-pipe"
+    },
+    {
+      type = "unlock-recipe",
+      recipe = "simple-heat-exchanger"
+    },
+    {
+      type = "unlock-recipe",
+      recipe = "steam-engine"
+    },
+  },
+  unit = {
+    count = 20,
+    ingredients = {{"automation-science-pack", 1}},
+    time = 15
+  },
+  prerequisites = { "automation-science-pack" }
+}
 
 for _, tech in pairs(techs) do
   data:extend({ tech })
@@ -93,4 +129,9 @@ data.raw.technology["automation-science-pack"].research_trigger =
   item = "steam-lab"
 }
 
-data.raw.technology[""]
+data.raw.technology["automation"].effects = {
+  {
+    type = "unlock-recipe",
+    recipe = "steam-assembling-machine"
+  }
+}

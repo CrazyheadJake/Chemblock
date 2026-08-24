@@ -274,6 +274,19 @@ recipes.simple_heat_pipe = {
   enabled = false
 }
 
+-- Iron electric pole
+local iron_electric_pole_recipe = table.deepcopy(data.raw.recipe["small-electric-pole"])
+iron_electric_pole_recipe.name = "iron-electric-pole"
+iron_electric_pole_recipe.icons = data.raw.item["iron-electric-pole"].icons
+iron_electric_pole_recipe.ingredients =
+{
+  { type = "item", name = "iron-stick",   amount = 1 },
+  { type = "item", name = "copper-cable", amount = 2 },
+}
+iron_electric_pole_recipe.results = { { type = "item", name = "iron-electric-pole", amount = 2 } }
+iron_electric_pole_recipe.enabled = false
+recipes.iron_electric_pole = iron_electric_pole_recipe
+
 for _, recipe in pairs(recipes) do
   data:extend({ recipe })
 end
