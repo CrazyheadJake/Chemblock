@@ -1,3 +1,6 @@
+---@type Storage
+storage = storage --[[@as Storage]]
+
 local starting_pack = "space-station-starter-pack"
 local starting_planet = "nauvis"
 
@@ -22,18 +25,37 @@ local function seed_space_rocks(surface)
   end
 end
 
+--- Create a space platform in orbit around any planet, with whatever starter
+--- pack that kind of station needs
+---@param force LuaForce
+---@param params { name: string?, planet: string, starter_pack: string }
+---@return LuaSpacePlatform
+local function create_space_station(force, params)
+  local platform = force.create_space_platform {
+    name = params.name,
+    planet = params.planet,
+    starter_pack = params.starter_pack,
+  }
+  assert(platform, "failed to create space platform")
+  platform.apply_starter_pack()
+  seed_space_rocks(platform.surface)
+  platform.surface.set_property("pressure", 500)
+  platform.surface.set_property("gravity", 10)
+
+  return platform
+end
+
 local function get_or_create_starting_platform(force)
   if storage.platform and storage.platform.valid then
     return storage.platform
   end
 
-  storage.platform = force.create_space_platform {
+  storage.platform = create_space_station(force, {
     name = "Chemblock Station",
     planet = starting_planet,
     starter_pack = starting_pack,
-  }
-  storage.platform.apply_starter_pack()
-  seed_space_rocks(storage.platform.surface)
+    surface_properties = { pressure = 1000, gravity = 10 },
+  })
 
   return storage.platform
 end
@@ -41,7 +63,7 @@ end
 register_event(defines.events.on_player_created, function(event)
   local player = game.get_player(event.player_index)
   local platform = get_or_create_starting_platform(player.force)
-  player.enter_space_platform(storage.platform)
+  player.enter_space_platform(platform)
 
   player.set_controller({ type = defines.controllers.character, character = player.character })
   local exit_position = platform.surface.find_non_colliding_position("character", { 0, 0 }, 0, 0.25)
@@ -54,7 +76,7 @@ register_event(defines.events.on_player_respawned, function(event)
   local player = game.get_player(event.player_index)
   local platform = get_or_create_starting_platform(player.force)
   game.print(player.force.get_spawn_position(platform.surface))
-  player.enter_space_platform(storage.platform)
+  player.enter_space_platform(platform)
 
   player.set_controller({ type = defines.controllers.character, character = player.character })
   local exit_position = platform.surface.find_non_colliding_position("character", { 0, 0 }, 0, 0.25)

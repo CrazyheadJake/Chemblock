@@ -52,3 +52,10 @@ require("prototypes.technology")
 
 -- Allow items to be placed on space platform
 
+-- Both work on regular platforms (pressure 0) and space stations (pressure
+-- 500), but not on any planet (pressure >= 1000 everywhere -- see
+-- prototypes/planet/*.lua). Matches prototypes/entity/steam-buildings.lua's
+-- steam-crusher / steam-asteroid-collector, which use the same condition.
+local platform_pressure_surface_conditions = { { property = "pressure", min = 0, max = 500 } }
+data.raw["asteroid-collector"]["asteroid-collector"].surface_conditions = platform_pressure_surface_conditions
+data.raw["assembling-machine"]["crusher"].surface_conditions = platform_pressure_surface_conditions

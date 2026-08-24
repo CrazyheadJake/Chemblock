@@ -8,6 +8,9 @@
 --
 -- Note `active` is read-only in 2.x; disabled_by_script is the writable path.
 
+---@type Storage
+storage = storage --[[@as Storage]]
+
 local COLLECTOR = "steam-asteroid-collector"
 local TANK = "steam-asteroid-collector-tank"
 

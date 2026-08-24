@@ -1,3 +1,8 @@
+-- Shared by every entity below that should work on regular platforms (pressure
+-- 0) and space stations (pressure 500) but not on any planet (pressure >= 1000
+-- for all of them -- see prototypes/planet/*.lua).
+local platform_pressure_surface_conditions = { { property = "pressure", min = 0, max = 500 } }
+
 local steam_furnace = table.deepcopy(data.raw.furnace["stone-furnace"])
 steam_furnace.name = "steam-furnace"
 steam_furnace.icons = {
@@ -57,7 +62,7 @@ steam_crusher.energy_source = {
   maximum_temperature = 165, -- same cap the vanilla steam engine uses
 }
 steam_crusher.minable.result = "steam-crusher"
-steam_crusher.surface_conditions = {}
+steam_crusher.surface_conditions = platform_pressure_surface_conditions
 steam_crusher.use_mirroring = true
 
 local steam_asteroid_collector = table.deepcopy(data.raw["asteroid-collector"]["asteroid-collector"])
@@ -76,6 +81,7 @@ steam_asteroid_collector.icons = {
 -- which drains the hidden tank below and flips disabled_by_script.
 steam_asteroid_collector.energy_source = { type = "void" }
 steam_asteroid_collector.minable.result = "steam-asteroid-collector"
+steam_asteroid_collector.surface_conditions = platform_pressure_surface_conditions
 
 -- Steam is billed by watching the output inventory grow, so anything else that
 -- puts items in looks like a collection. Inserting into a collector is

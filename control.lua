@@ -1,5 +1,11 @@
 local util = require("util")
 
+---@class Storage
+---@field platform LuaSpacePlatform?
+---@field dropped_items { entity: LuaEntity, end_tick: uint, force: LuaForce? }[]
+---@field steam_collectors table<uint, { collector: LuaEntity, tank: LuaEntity }>
+storage = storage --[[@as Storage]]
+
 local nth_ticks = {}
 function register_nth_tick(nth, func)
   nth_ticks[nth] = nth_ticks[nth] or {}

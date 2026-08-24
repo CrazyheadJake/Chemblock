@@ -1,3 +1,6 @@
+---@type Storage
+storage = storage --[[@as Storage]]
+
 local SMELTING_TIME = 10
 local SMELTABLE_ITEMS = { ["iron-ore"] = "iron-plate", ["copper-ore"] = "copper-plate" }
 
