@@ -47,6 +47,9 @@ data.raw.recipe["automation-science-pack"].ingredients = {
   { type = "item", name = "ice",             amount = 1 },
 }
 
+-- Disable burner inserter
+data.raw.recipe["burner-inserter"].enabled = false
+
 -- Technology edits
 require("prototypes.technology")
 
